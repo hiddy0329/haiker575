@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('新規登録') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -15,7 +15,7 @@
                             <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('俳号(必須)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" placeholder="(例) 俳句太郎" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <label for="profile" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール(任意)') }}</label>
                             <div class="col-md-6">
-                                <textarea name='profile' class="form-control"rows="10"></textarea>
+                                <textarea name='profile' placeholder="(例) 趣味:俳句, 特技：書道" class="form-control"rows="10"></textarea>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('登録') }}
                                 </button>
                             </div>
                         </div>
