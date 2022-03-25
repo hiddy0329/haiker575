@@ -57,8 +57,22 @@
                         </div>
                     @endguest
                 </div>
+                <div class="w-100 mt-5" style="height: 120px; background-color: rgba(0,0,255,.1)">
+                    <button class="btn btn-primary h-50 w-100 mt-3" type="button">投稿句一覧表示ボタン</button>
+                </div>
+                <div class="w-100 mt-3" style="height: 120px; background-color: #ffc107">
+                    <button class="btn btn-primary h-50 w-100 mt-3" type="button">検索ボタン</button>
+                </div>
+                <div class="w-100 mt-3" style="height: 120px; background-color: #20c997">
+                    <button class="btn btn-primary h-50 w-100 mt-3" type="button">メッセージ確認ボタン</button>
+                </div>
+                <div class="w-100 mt-3" style="height: 120px; background-color: #0dcaf0">
+                    <button class="btn btn-primary h-50 w-100 mt-3" type="button">マイページ表示ボタン</button>
+                </div>
             </div>
-            <div class="h-25 w-100 p-3" style="width: 120px; background-color: #0d6efd">Height 25%</div>
+            <div class="h-25 w-100 p-3" style="width: 120px; background-color: #0d6efd">
+                <button class="btn btn-primary h-25 w-100 mt-5" type="button">Button</button>
+            </div>
         </div>
         <div class="h-100 w-75" style="background-color: #eee">
             @yield('content')
