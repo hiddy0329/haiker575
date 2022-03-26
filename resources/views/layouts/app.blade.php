@@ -110,14 +110,16 @@
                     </div>
                 </nav>
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-                    <h1 class="h2">Dashboard</h1>
+                    <div class="row">
+                        <div class="col-md-8 p-0">
+                            @yield('content')
+                        </div>
+                        <div class="col-md-4 p-0">
+                            
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
-
-
-        <!-- <main class="py-4">
-            @yield('content')
-        </main> -->
 </body>
 </html>
