@@ -65,10 +65,10 @@
             </div>
         </div>
     </nav>
-        <div class="container-fluid">
-            <div class="row">
-                <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-md-5">
+    <main class="main">
+    <div class="row" style='height: 92vh;'>
+        <nav id="sidebar" class="col-md-3 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-md-5">
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">
@@ -107,19 +107,21 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </nav>
-                <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-                    <div class="row">
-                        <div class="col-md-8 p-0">
-                            @yield('content')
-                        </div>
-                        <div class="col-md-4 p-0">
-                            
-                        </div>
-                    </div>
-                </main>
+            </div>
+        </nav>
+        <div class="col-md-5 ml-auto px-0">
+            <div class="card h-100">
+                <div class="card-header d-flex">
+                    投句一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
+                </div>
+                <div class="card-body p-2">
+                </div>    
             </div>
         </div>
+        <div class="col-md-4 p-0">
+            @yield('content')
+        </div>
+    </div>
+    </main>
 </body>
 </html>

@@ -10993,6 +10993,7 @@ a.text-dark:focus {
 }
 
 .sidebar .nav-link {
+  margin-left: 90px;
   color: #333;
 }
 
