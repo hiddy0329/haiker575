@@ -24,12 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-    }
-
-    public function boot()
-    {
-        //以下を記述
+        // 文字数制限を191までにする
         Schema::defaultStringLength(191);
     }
+
 }
