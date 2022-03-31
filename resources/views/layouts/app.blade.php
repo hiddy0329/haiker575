@@ -109,7 +109,7 @@
                         </ul>
             </div>
         </nav>
-        <div class="col-md-5 ml-auto px-0">
+        <div class="col-md-5 ml-auto px-0 ichiran">
             <div class="card h-100">
                 <div class="card-header d-flex">
                     投句一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
@@ -122,7 +122,7 @@
                             <h1 class="ku">{{ $post['ku'] }}</h2>
                         </div>
                         <p class="description p-3">{{ $post['description'] }}</p>
-                        作者：<a href="#" class="stretched-link">{{ $post->user->name }}</a>
+                        <p class="px-3">作者：<a href="#" class="stretched-link">{{ $post->user->name }}</a></p>
                     </div>
                 </div>
         @endforeach
