@@ -117,13 +117,12 @@
                 <div class="card-body overflow-scrol">
         @foreach($posts as $post)
                 <div class="card-body border border-light">
-                    <img src="..." class="card-img-top" alt="haiku gazo">
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
                             <h1 class="ku">{{ $post['ku'] }}</h2>
                         </div>
                         <p class="description p-3">{{ $post['description'] }}</p>
-                        <a href="#" class="stretched-link">{{ $post->user->name }}</a>
+                        作者：<a href="#" class="stretched-link">{{ $post->user->name }}</a>
                     </div>
                 </div>
         @endforeach
