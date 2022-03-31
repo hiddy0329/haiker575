@@ -66,7 +66,7 @@
         </div>
     </nav>
     <main class="container-fluid">
-    <div class="row" style='height: 92vh;'>
+    <div class="row">
         <nav id="sidebar" class="col-md-3 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
                         <ul class="nav flex-column">
@@ -119,8 +119,10 @@
                 <div class="card-body border border-light">
                     <img src="..." class="card-img-top" alt="haiku gazo">
                     <div class="card-body">
-                        <h2 class="">{{ $post['ku'] }}</h2>
-                        <p class="description">{{ $post['description'] }}</p>
+                        <div class="d-flex justify-content-center">
+                            <h1 class="ku">{{ $post['ku'] }}</h2>
+                        </div>
+                        <p class="description p-3">{{ $post['description'] }}</p>
                         <a href="#" class="stretched-link">{{ $post->user->name }}</a>
                     </div>
                 </div>

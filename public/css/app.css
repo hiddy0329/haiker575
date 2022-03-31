@@ -11001,3 +11001,7 @@ a.text-dark:focus {
   color: #0d6efd;
 }
 
+.ku {
+  -ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+}
