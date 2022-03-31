@@ -65,7 +65,7 @@
             </div>
         </div>
     </nav>
-    <main class="main">
+    <main class="container-fluid">
     <div class="row" style='height: 92vh;'>
         <nav id="sidebar" class="col-md-3 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
@@ -114,7 +114,17 @@
                 <div class="card-header d-flex">
                     投句一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
                 </div>
-                <div class="card-body p-2">
+                <div class="card-body overflow-scrol">
+        @foreach($posts as $post)
+                <div class="card-body border border-light">
+                    <img src="..." class="card-img-top" alt="haiku gazo">
+                    <div class="card-body">
+                        <h2 class="">{{ $post['ku'] }}</h2>
+                        <p class="description">{{ $post['description'] }}</p>
+                        <a href="#" class="stretched-link">{{ $post->user->name }}</a>
+                    </div>
+                </div>
+        @endforeach
                 </div>    
             </div>
         </div>

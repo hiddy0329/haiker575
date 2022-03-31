@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // 投句一覧をモデルを通じて取得する
+        // 論理削除モデルを使用してステータスが1のもののみ取得するようにする
+        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        return view('home', compact('posts'));
     }
 
     public function create()
