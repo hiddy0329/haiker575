@@ -34,8 +34,10 @@ class HomeController extends Controller
     {
         // ログインしているユーザーの情報をビューに渡す処理をする
         $user = \Auth::user();
+        // 投句一覧を取得
+        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
         // compactにユーザーデータを入れて渡す
-        return view('create', compact('user'));
+        return view('create', compact('user', 'posts'));
     }
 
     public function store(Request $request)
