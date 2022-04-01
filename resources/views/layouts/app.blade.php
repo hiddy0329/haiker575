@@ -112,7 +112,7 @@
         <div class="col-md-5 ml-auto px-0 ichiran">
             <div class="card h-100">
                 <div class="card-header d-flex">
-                    投句一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
+                    投句一覧
                 </div>
                 <div class="card-body overflow-scrol">
         @foreach($posts as $post)
@@ -122,7 +122,10 @@
                             <h1 class="ku">{{ $post['ku'] }}</h2>
                         </div>
                         <p class="description p-3">{{ $post['description'] }}</p>
-                        <p class="px-3">作者：<a href="#" class="stretched-link">{{ $post->user->name }}</a></p>
+                        <p class="px-3">作者：{{ $post->user->name }}</p>
+                        @if (Auth::id() == $post->user_id)
+                            <a href="/edit/{{ $post['id'] }}" class='px-3'>推敲</a>
+                        @endif
                     </div>
                 </div>
         @endforeach
