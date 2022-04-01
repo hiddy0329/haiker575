@@ -11002,6 +11002,5 @@ a.text-dark:focus {
 }
 
 .ku {
-  -ms-writing-mode: tb-rl;
 	writing-mode: vertical-rl;
 }
