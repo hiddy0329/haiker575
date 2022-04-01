@@ -54,5 +54,26 @@ class HomeController extends Controller
         // リダイレクト処理
         return redirect()->route('home');
     }
+
+    public function edit($id){
+        // 該当するIDの句をデータベースから取得
+        $user = \Auth::user();
+        // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものかつログインしているユーザーのものを取得する
+        $post = Post::where('status', 1)->where('id', $id)->where('user_id', $user['id'])->first();
+        // dd($post);
+        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        //取得した句をViewに渡す
+        return view('edit',compact('post', 'user', 'posts'));
+    }
+
+    public function update(Request $request, $id)
+    {   
+        // リクエストファザードでidもしっかりと受け取る。どのレコードを更新するのかを判別するのに必要だから。
+        $inputs = $request->all();
+        // dd($inputs);
+        Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
+        return redirect()->route('home');
+    }
+
     
 }
