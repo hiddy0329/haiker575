@@ -74,6 +74,15 @@ class HomeController extends Controller
         Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
         return redirect()->route('home');
     }
-
+    
+    public function delete(Request $request, $id)
+    {   
+        $inputs = $request->all();
+        // dd($inputs);
+        // 論理削除モデルを用いて削除する
+        Post::where('id', $id)->update(['status' => 2]);
+        // 削除時に'success'という名前でフラッシュメッセージを渡す
+        return redirect()->route('home')->with('success', '俳句の削除が完了しました!');
+    }
     
 }
