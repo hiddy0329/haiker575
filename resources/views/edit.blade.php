@@ -3,7 +3,13 @@
 @section('content')
 <div class="row justify-content-center ml-0 mr-0 h-100">
     <div class="card w-100">
-        <div class="card-header">推敲</div>
+        <div class="card-header d-flex justify-content-between">
+            推敲
+            <form method='POST' action="/delete/{{$post['id']}}" id='delete-form'>
+                @csrf
+                <button class='p-0 mr-2' style='border:none;'><i id='delete-button' class="fas fa-trash-alt"></i></button>
+            </form> 
+        </div>
         <div class="card-body">
             <form method='POST' action="{{ route('update', ['id' => $post['id']]) }}">
                 @csrf
