@@ -21,3 +21,5 @@ Route::get('/edit/{id}', 'HomeController@edit')->name('edit');
 Route::post('/update/{id}', 'HomeController@update')->name('update');
 Route::get('/show/{id}', 'HomeController@show')->name('show');
 Route::post('/delete/{id}', 'HomeController@delete')->name('delete');
+
+Route::post('/posts/{post_id}/comments','CommentsController@store');
