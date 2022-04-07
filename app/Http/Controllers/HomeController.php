@@ -76,10 +76,10 @@ class HomeController extends Controller
     }
 
     public function show($id){
-        // 該当するIDの句をデータベースから取得
+        // ログインしているユーザーの情報を取得
         $user = \Auth::user();
         // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものかつログインしているユーザーのものを取得する
-        $post = Post::where('status', 1)->where('id', $id)->where('user_id', $user['id'])->first();
+        $post = Post::where('status', 1)->where('id', $id)->first();
         // dd($post);
         $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
         //取得した句をViewに渡す
