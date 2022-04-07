@@ -78,7 +78,7 @@ class HomeController extends Controller
     public function show($id){
         // ログインしているユーザーの情報を取得
         $user = \Auth::user();
-        // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものかつログインしているユーザーのものを取得する
+        // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものを取得する
         $post = Post::where('status', 1)->where('id', $id)->first();
         // dd($post);
         $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
