@@ -132,6 +132,7 @@
                         @if (Auth::id() == $post->user_id)
                             <a href="/edit/{{ $post['id'] }}" class='px-3'>推敲</a>
                         @endif
+                        <a href="/show/{{ $post['id'] }}" class='px-3'>詳細</a>
                     </div>
                 </div>
         @endforeach
