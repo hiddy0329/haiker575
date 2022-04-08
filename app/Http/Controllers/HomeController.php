@@ -95,5 +95,18 @@ class HomeController extends Controller
         // 削除時に'success'という名前でフラッシュメッセージを渡す
         return redirect()->route('home')->with('success', '俳句の削除が完了しました!');
     }
-    
+
+    public function search(Request $request)
+    {   
+        // リクエストからフォームの中の値を受け取る
+        $keyword = $request->get('keyword');
+        if ($keyword !== null) {
+            $escape_word = addcslashes($keyword, '\\_%');
+            // postsテーブルから曖昧検索を実行する
+            $posts = Post::where('ku', 'like', '%' . $escape_word . '%')->get();
+        } else {
+            $posts = Post::all();
+        }
+        return view('home', compact('posts'));
+    }
 }
