@@ -1,21 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+<div class="row justify-content-center ml-0 mr-0 h-100">
+    <div class="card w-100">
+        <div class="card-header">俳句検索</div>
+            <div class="card-body">
+                <form action="{{route('search')}}">
+                    <div class="d-flex justify-content-center">
+                        <input class="form-control form-control-lg border border-primary rounded-pill" type="text" placeholder="キーワード検索" aria-label="Search" name="keyword">
+                        <input class="btn btn-primary btn-lg rounded-pill" type="submit" value="検索">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -30,12 +30,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div class="col-12 col-md-4 col-lg-2">
-            <form action="{{route('search')}}" class="d-flex">
-                <input class="form-control form-control-dark" type="text" placeholder="キーワード検索" aria-label="Search" name="keyword">
-                <input type="submit" value="検索">
-            </form>
-        </div>
         <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
             <div class="mr-3 mt-1">
                 <a class="github-button" href="https://github.com/themesberg/simple-bootstrap-5-dashboard" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star /themesberg/simple-bootstrap-5-dashboard">Star</a>
