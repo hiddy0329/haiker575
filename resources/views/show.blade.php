@@ -7,7 +7,7 @@
             俳句詳細
             <form method='POST' action="/delete/{{$post['id']}}" id='delete-form'>
                 @csrf
-                <button class='p-0 mr-2' style='border:none;'><i id='delete-button' class="fas fa-trash-alt"></i></button>
+                <button id="delete-button" class='p-0 mr-2' style='border:none;'><i id='delete-icon' class="fas fa-trash-alt"></i></button>
             </form> 
         </div>
         <div class="card-body">

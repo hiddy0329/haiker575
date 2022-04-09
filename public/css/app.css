@@ -11005,3 +11005,6 @@ a.text-dark:focus {
 	writing-mode: vertical-rl;
 }
 
+.navbar {
+  background-color: pink;
+}
