@@ -31,14 +31,15 @@
                 <button type='submit' class="btn btn-primary btn-lg">コメント投稿</button>
             </form>
             
-            <!-- トリガーとなるリンク&ボタン -->
-            <button class="btn btn-success mt-3 w-100" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+            <!-- トリガーとなるボタン -->
+            <button class="btn btn-success mt-3 w-100" type="button" data-toggle="collapse" data-target="#comment-list" 
+                    aria-expanded="false" aria-controls="collapseExample1">
                 <h4>コメントを見る▼▼</h4>
             </button>
-            <!-- /トリガーとなるリンク&ボタン -->
+            <!-- /トリガーとなるボタン -->
 
             <!-- 対象のコンテンツ -->
-            <div class="collapse mt-2 border border-secondary rounded" id="collapseExample1">
+            <div class="collapse mt-2 border border-secondary rounded" id="comment-list">
             @foreach($post->comments as $comment)
                 <div class="d-flex mt-1">
                     <p class="w-25">{{ $comment->user->name }}：</p>
