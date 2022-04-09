@@ -25,3 +25,7 @@ Route::get('/posts/search', 'homeController@search')->name('search');
 
 Route::post('/posts/{post_id}/comments','CommentsController@store');
 
+Route::get('/users/{id}', 'UsersController@show')->name('show');
+
+
+
