@@ -23,11 +23,13 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {   
+        // ログインしているユーザーの情報をビューに渡す処理をする
+        $user = \Auth::user();
         // 投句一覧をモデルを通じて取得する
         // 論理削除モデルを使用してステータスが1のもののみ取得するようにする
         $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
-        return view('home', compact('posts'));
+        return view('home', compact('user', 'posts'));
     }
 
     public function create()
