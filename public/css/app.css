@@ -11008,3 +11008,7 @@ a.text-dark:focus {
 .navbar {
   background-color: var(--pink);
 }
+
+.app-name {
+  margin-bottom: 0;
+}
