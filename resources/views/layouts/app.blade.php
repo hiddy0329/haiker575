@@ -21,44 +21,55 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light">
-        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-            <a class="navbar-brand text-white" href="/home">
-                <h2>haiker575</h2>
-            </a>
-            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </diV>
-        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
-            <div class="dropdown">
+    <nav class="navbar navbar-expand-md bg-pink shadow-sm">
+    <div class="container">
+        <a class="navbar-brand text-white" href="{{ url('/') }}">
+            <h2>haiker575</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link text-white" href="{{ route('login') }}"><h2>{{ __('Login') }}</h2></a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}"><h2>{{ __('Register') }}</h2></a>
                         </li>
                     @endif
                 @else
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                 @endguest
-            </div>
+            </ul>
         </div>
+    </div>
     </nav>
     <main class="container-fluid">
     <div class="row">

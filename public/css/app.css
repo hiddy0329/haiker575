@@ -11006,5 +11006,5 @@ a.text-dark:focus {
 }
 
 .navbar {
-  background-color: pink;
+  background-color: var(--pink);
 }
