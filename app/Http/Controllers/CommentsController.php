@@ -9,8 +9,11 @@ class CommentsController extends Controller
 {
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'text' => 'required|string|max:1000', 'user_id' => 'required', 'post_id' => 'required'
+        ]);
         // $requestとしてhtmlから投げられたデータを全て$dataに代入する
-        $data = $request->all();
+        $data = $validated;
         // dd($data);
         // COMMENTモデルにDBへ保存する命令を出す
         $comment_id = Comment::insertGetId([
