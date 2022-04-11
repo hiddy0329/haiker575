@@ -44,8 +44,12 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {   
+        // 簡単なバリデーション
+        $validated = $request->validate([
+            'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
+        ]);
         // $requestとしてhtmlから投げられたデータを全て$dataに代入する
-        $data = $request->all();
+        $data = $validated;
         // dd($data);
         // 送信されたデータをDB（memosテーブル）に挿入
         // POSTモデルにDBへ保存する命令を出す
