@@ -76,7 +76,7 @@
         <nav id="sidebar" class="col-md-3 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
                 <div class="d-flex justify-content-center">
-                <img src="アプリロゴ.png" class="app-logo h-75 w-75" alt="...">
+                    <img src="アプリロゴ.png" class="app-logo h-75 w-75" alt="...">
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item h1">
