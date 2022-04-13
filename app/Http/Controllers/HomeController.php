@@ -48,6 +48,7 @@ class HomeController extends Controller
         $validated = $request->validate([
             'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
         ]);
+
         // $requestとしてhtmlから投げられたデータを全て$dataに代入する
         $data = $validated;
         // dd($data);
@@ -74,8 +75,13 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {   
-        // リクエストファザードでidもしっかりと受け取る。どのレコードを更新するのかを判別するのに必要だから。
-        $inputs = $request->all();
+        // 簡単なバリデーション
+        $validated = $request->validate([
+            'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
+        ]);
+
+        // レコード更新
+        $inputs = $validated;
         // dd($inputs);
         Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
         return redirect()->route('home');
