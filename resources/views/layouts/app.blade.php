@@ -9,9 +9,6 @@
 
     <title>haiker575</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -142,5 +139,8 @@
         </div>
     </div>
     </main>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
+<div id="app"></div>
 </html>
