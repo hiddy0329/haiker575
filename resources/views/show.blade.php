@@ -14,10 +14,12 @@
     <div class="card w-100">
         <div class="card-header d-flex justify-content-between">
             俳句詳細
+        @if (Auth::id() == $post->user_id)
             <form method='POST' action="/delete/{{$post['id']}}" id='delete-form'>
                 @csrf
                 <button id="delete-button" class='p-0 mr-2' style='border:none;'><i id='delete-icon' class="fas fa-trash-alt"></i></button>
-            </form> 
+            </form>
+        @endif
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-center">
@@ -43,7 +45,7 @@
             <!-- トリガーとなるボタン -->
             <button class="btn btn-success mt-3 w-100" type="button" data-toggle="collapse" data-target="#comment-list" 
                     aria-expanded="false" aria-controls="collapseExample1">
-                <h4>コメントを見る▼▼</h4>
+                <h4 class="refer-comments">コメントを見る▼▼</h4>
             </button>
             <!-- /トリガーとなるボタン -->
 
@@ -51,8 +53,8 @@
             <div class="collapse mt-2 border border-secondary rounded" id="comment-list">
             @foreach($post->comments as $comment)
                 <div class="d-flex mt-1">
-                    <p class="w-25">{{ $comment->user->name }}：</p>
-                    <p class="w-75">{{ $comment['text'] }}</p>
+                    <p class="w-25 comment-user">{{ $comment->user->name }}：</p>
+                    <p class="w-75 comment">{{ $comment['text'] }}</p>
                 </div>
             @endforeach 
             </div>

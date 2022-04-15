@@ -36,7 +36,7 @@
 
             <!-- トリガーとなるリンク&ボタン -->
             <button class="btn btn-success mt-3 w-100" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-                <h4>コメントを参考にする▼▼</h4>
+                <h4 class="refer-comments">コメントを参考にする▼▼</h4>
             </button>
             <!-- /トリガーとなるリンク&ボタン -->
 
@@ -44,8 +44,8 @@
             <div class="collapse mt-2 border border-secondary rounded" id="collapseExample1">
         @foreach($post->comments as $comment)
                 <div class="d-flex mt-1">
-                    <p class="w-25">{{ $comment->user->name }}：</p>
-                    <p class="w-75">{{ $comment['text'] }}</p>
+                    <p class="w-25 comment-user">{{ $comment->user->name }}：</p>
+                    <p class="w-75 comment">{{ $comment['text'] }}</p>
                 </div>
         @endforeach 
             </div>
