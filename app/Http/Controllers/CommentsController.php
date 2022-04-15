@@ -19,8 +19,7 @@ class CommentsController extends Controller
         $comment_id = Comment::insertGetId([
             'text' => $data['text'], 'user_id' => $data['user_id'], 'post_id' => $data['post_id'], 'status' => 1
         ]);
-        
-        // リダイレクト処理
-        return redirect()->route('home');
+
+        return back();
     }
 }

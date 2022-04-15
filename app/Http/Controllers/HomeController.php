@@ -84,7 +84,8 @@ class HomeController extends Controller
         $inputs = $validated;
         // dd($inputs);
         Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
-        return redirect()->route('home');
+        
+        return back();
     }
 
     public function show($id){
