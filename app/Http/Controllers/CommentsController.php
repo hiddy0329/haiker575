@@ -9,10 +9,11 @@ class CommentsController extends Controller
 {
     public function store(Request $request)
     {
+        // バリデーションを実行
         $validated = $request->validate([
             'text' => 'required|string|max:1000', 'user_id' => 'required', 'post_id' => 'required'
         ]);
-        // $requestとしてhtmlから投げられたデータを全て$dataに代入する
+        // バリデーションを通過したデータを全て$dataに代入する
         $data = $validated;
         // dd($data);
         // COMMENTモデルにDBへ保存する命令を出す
@@ -20,6 +21,6 @@ class CommentsController extends Controller
             'text' => $data['text'], 'user_id' => $data['user_id'], 'post_id' => $data['post_id'], 'status' => 1
         ]);
 
-        return back();
+        return back()->with('success', 'コメントを投稿しました!');
     }
 }

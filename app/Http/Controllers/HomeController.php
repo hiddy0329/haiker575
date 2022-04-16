@@ -44,30 +44,30 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {   
-        // 簡単なバリデーション
+        // バリデーションを実行
         $validated = $request->validate([
             'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
         ]);
 
-        // $requestとしてhtmlから投げられたデータを全て$dataに代入する
+        // バリデーションを通過したデータを全て$dataに代入する
         $data = $validated;
         // dd($data);
-        // 送信されたデータをDB（memosテーブル）に挿入
         // POSTモデルにDBへ保存する命令を出す
         $post_id = Post::insertGetId([
             'ku' => $data['ku'], 'description' => $data['description'], 'user_id' => $data['user_id'], 'status' => 1
         ]);
         
         // リダイレクト処理
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', '俳句の投稿が完了しました!');
     }
 
     public function edit($id){
-        // 該当するIDの句をデータベースから取得
+        // ログインしているユーザーの情報をビューに渡す処理をする
         $user = \Auth::user();
         // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものかつログインしているユーザーのものを取得する
         $post = Post::where('status', 1)->where('id', $id)->where('user_id', $user['id'])->first();
         // dd($post);
+        // 俳句一覧を取得
         $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
         //取得した句をViewに渡す
         return view('edit',compact('post', 'user', 'posts'));
@@ -75,17 +75,18 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {   
-        // 簡単なバリデーション
+        // バリデーションを実行
         $validated = $request->validate([
             'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
         ]);
 
-        // レコード更新
+        // バリデーションを通過したデータを全て$inputsに代入する
         $inputs = $validated;
         // dd($inputs);
+        // POSTモデルにDBへ保存する命令を出す
         Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
         
-        return back();
+        return back()->with('success', '更新しました!');
     }
 
     public function show($id){
