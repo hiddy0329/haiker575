@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Common\getDataClass;
+use App\Common\getUserClass;
 
 class HomeController extends Controller
 {
@@ -25,19 +27,19 @@ class HomeController extends Controller
     public function index()
     {   
         // ログインしているユーザーの情報をビューに渡す処理をする
-        $user = \Auth::user();
+        $user = getUserClass::getUser();
         // 投句一覧をモデルを通じて取得する
         // 論理削除モデルを使用してステータスが1のもののみ取得するようにする
-        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        $posts = getDataClass::getData();
         return view('home', compact('user', 'posts'));
     }
 
     public function create()
     {
         // ログインしているユーザーの情報をビューに渡す処理をする
-        $user = \Auth::user();
+        $user = getUserClass::getUser();
         // 投句一覧を取得
-        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        $posts = getDataClass::getData();
         // compactにユーザーデータを入れて渡す
         return view('create', compact('user', 'posts'));
     }
@@ -63,12 +65,12 @@ class HomeController extends Controller
 
     public function edit($id){
         // ログインしているユーザーの情報をビューに渡す処理をする
-        $user = \Auth::user();
+        $user = getUserClass::getUser();
         // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものかつログインしているユーザーのものを取得する
         $post = Post::where('status', 1)->where('id', $id)->where('user_id', $user['id'])->first();
         // dd($post);
         // 俳句一覧を取得
-        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        $posts = getDataClass::getData();
         //取得した句をViewに渡す
         return view('edit',compact('post', 'user', 'posts'));
     }
@@ -91,11 +93,11 @@ class HomeController extends Controller
 
     public function show($id){
         // ログインしているユーザーの情報を取得
-        $user = \Auth::user();
+        $user = getUserClass::getUser();
         // ステータスが1かつ送られてきたidがデータベースのpost_idと一致するものを取得する
         $post = Post::where('status', 1)->where('id', $id)->first();
         // dd($post);
-        $posts = Post::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        $posts = getDataClass::getData();
         //取得した句をViewに渡す
         return view('show',compact('post', 'user', 'posts'));
     }
