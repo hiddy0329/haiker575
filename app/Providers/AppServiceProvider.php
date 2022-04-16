@@ -26,9 +26,5 @@ class AppServiceProvider extends ServiceProvider
     {
         // 文字数制限を191までにする
         Schema::defaultStringLength(191);
-
-        if (App::environment(['production'])) {
-            URL::forceScheme('https');
-        }
     }
 }
