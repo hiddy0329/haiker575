@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_plus.css') }}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-light bg-pink p-3">
@@ -67,7 +68,7 @@
         <nav id="sidebar" class="col-md-3 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
                 <div class="d-flex justify-content-center">
-                    <img src="{{ secure_asset('applogo.jpeg') }}" class="app-logo" alt="...">
+                    <img src="{{ asset('applogo.jpeg') }}" class="app-logo" alt="...">
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item h1">
@@ -137,7 +138,7 @@
     </div>
     </main>
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 <div id="app"></div>
 </html>
