@@ -13,9 +13,10 @@
             </form> 
         </div>
         <div class="card-body">
-            <form method='POST' action="{{ route('update', ['id' => $post['id']]) }}">
+            <form method='POST' action="{{ route('update', ['id' => $post['id']]) }}" enctype="multipart/form-data">
                 @csrf
                 <input type='hidden' name='user_id' value="{{ $user['id'] }}">
+                <img src="{{ '/storage/' . $post['image']}}" class='w-100 mb-3'/>
                 <div class="form-group">
                     <label for="ku">俳句</label>
                     <input name='ku' type="text" class="form-control" id="ku" placeholder="一句入力" value="{{ $post['ku'] }}">
@@ -23,6 +24,10 @@
                 <div class="form-group">
                     <label for="description">説明文</label>
                     <textarea name='description' class="form-control"rows="10">{{ $post['description'] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">画像登録</label>
+                    <input type="file" class="form-control-file" name='image' id="image">
                 </div>
                 <button type='submit' class="btn btn-primary btn-lg">更新</button>
             </form>
