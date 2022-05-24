@@ -46,17 +46,32 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {   
-        // バリデーションを実行
+        // 送られてきたデータから画像データを取得
+        $image = $request->file('image');
+
+        // 画像がアップロードされていれば、storageに保存
+        if($request->hasFile('image')){
+            $path = \Storage::put('/public', $image);
+            $path = explode('/', $path);
+        }else{
+            $path = null;
+        }
+
+        // 他のデータに対しバリデーションを実行
         $validated = $request->validate([
             'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
         ]);
-
         // バリデーションを通過したデータを全て$dataに代入する
         $data = $validated;
         // dd($data);
+
         // POSTモデルにDBへ保存する命令を出す
         $post_id = Post::insertGetId([
-            'ku' => $data['ku'], 'description' => $data['description'], 'user_id' => $data['user_id'], 'status' => 1
+            'ku' => $data['ku'], 
+            'description' => $data['description'], 
+            'user_id' => $data['user_id'], 
+            'image' => $path[1],
+            'status' => 1
         ]);
         
         // リダイレクト処理
