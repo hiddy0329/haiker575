@@ -92,7 +92,18 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {   
-        // バリデーションを実行
+        // 送られてきたデータから画像データを取得
+        $image = $request->file('image');
+        //dd($path);
+        // 画像がアップロードされていれば、storageに保存
+        if($request->hasFile('image')){
+            $path = \Storage::put('/public', $image);
+            $path = explode('/', $path);
+        }else{
+            $path = null;
+        }
+
+        // 他のデータに対しバリデーションを実行
         $validated = $request->validate([
             'ku' => 'required|string|max:30','description' => 'required|string|max:1000', 'user_id' => 'required' 
         ]);
@@ -101,7 +112,7 @@ class HomeController extends Controller
         $inputs = $validated;
         // dd($inputs);
         // POSTモデルにDBへ保存する命令を出す
-        Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'] ]);
+        Post::where('id', $id)->update(['ku' => $inputs['ku'], 'description' => $inputs['description'], 'image' => $path[1] ]);
         
         return back()->with('success', '更新しました!');
     }
