@@ -118,6 +118,7 @@
                 <div class="card-body overflow-scrol">
         @foreach($posts as $post)
                     <div class="card-body border border-secondary rounded px-5 mx-3 mt-3" id="post">
+                        <img src="{{ '/storage/' . $post['image']}}" class='w-100 mb-3'/>
                         <div class="d-flex justify-content-center">
                             <h1 class="ku">{{ $post['ku'] }}</h2>
                         </div>
