@@ -94,7 +94,7 @@ class HomeController extends Controller
     {   
         // 送られてきたデータから画像データを取得
         $image = $request->file('image');
-        //dd($path);
+        
         // 画像がアップロードされていれば、storageに保存
         if($request->hasFile('image')){
             $path = \Storage::put('/public', $image);
