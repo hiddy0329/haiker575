@@ -14,6 +14,7 @@
         @endif
         </div>
         <div class="card-body">
+            <img src="{{ '/storage/' . $post['image']}}" class='w-100 mb-3'/>
             <div class="d-flex justify-content-center">
                 <h1 class="ku">{{ $post['ku'] }}</h2>
             </div>
